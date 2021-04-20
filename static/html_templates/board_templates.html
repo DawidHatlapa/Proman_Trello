@@ -1,0 +1,138 @@
+<template id="board_template">
+    <br><br>
+    <h1>
+        <label id="board_title" aria-hidden="true"></label>
+    </h1>
+    <label id="board_user_id"></label>
+    <input hidden id="boardIdInput"/>
+    <br>
+    <button id="add-new-card">New card</button>
+    <br>
+    <button id="add-new-column">New column</button>
+    <div id="myColumns">
+
+    </div>
+</template>
+<template id="column_template">
+     <div id="" class="list-group col">
+                    <label id="columnTitle" class="columnTitle ">To do <a>Edit</a><a>Archive</a></label>
+                    <!--<div class="list-group-item">Item 1</div>-->
+     </div>
+</template>
+<template id="columns_template">
+    <div id="columnContainer" class="columnContainer row">
+      <div >
+
+      </div>
+    </div>
+</template>
+<template id="createCard_template">
+    <div class="modal fade" id="createCardModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Create card</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="create-card-form">
+                        <div class="form-group">
+                            <label for="card_description">Title</label>
+                            <input type="text" class="form-control" id="card_description" placeholder="Title">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="createCardBtn">Create</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</template>
+<template id="editCard_template">
+    <div class="modal fade" id="editCardModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit card</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-card-form">
+                        <div class="form-group">
+                            <label for="card_description">Title</label>
+                            <input type="text" class="form-control" id="card_edit_description" placeholder="Title">
+                            <input type="hidden" id="card_edit_id" >
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="editCardBtn">Edit</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</template>
+<template id="createColumn_template">
+    <div class="modal fade" id="createColumnModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Create column</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="create-column-form">
+                        <div class="form-group">
+                            <label for="create_column_name">Name</label>
+                            <input type="text" class="form-control" id="create_column_name" placeholder="Name">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="createColumnBtn">Create</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</template>
+<template id="editColumn_template">
+    <div class="modal fade" id="editColumnModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit column</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-column-form">
+                        <div class="form-group">
+                            <label for="edit_column_name">Name</label>
+                            <input type="text" class="form-control" id="edit_column_name" placeholder="Name">
+                            <input type="hidden" id="column_edit_id" >
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="editColumnBtn">Edit</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</template>

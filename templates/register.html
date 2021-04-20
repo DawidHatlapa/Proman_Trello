@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script type="module" src="/static/js/register.js" defer></script>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <!-- Login Form -->
+    <form>
+        <img class="welcomeTextLogin" src="/static/images/register_text.png"/>
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="your email">
+      <input type="password" id="password1" class="fadeIn third" name="login" placeholder="your password">
+        <input type="password" id="password2" class="fadeIn fourth" name="login" placeholder="repeat password">
+      <input id="registerButtonSubmit" type="button" class="fadeIn fourth" value="Register">
+    </form>
+        <div id="waitForResponse" class="serverRespondingText"></div>
+    <div id="waitForResponse"></div>
+    <div id="hintMessages" class = "hintMessages"></div>
+    <div>
+        <form action={{ url_for("login") }}>
+            <button class="registerButton">
+                <img id="registerButtonImg" class="registerButtonImg_regular" src="/static/images/login_question.png"/>
+            </button>
+        </form>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

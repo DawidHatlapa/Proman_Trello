@@ -1,0 +1,78 @@
+<!-- Modal window for adding new board -->
+<template id="createBoard">
+    <div class="modal fade" id="createBoardModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Create board</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="create-board-form">
+                        <div class="form-group">
+                            <label for="board_title">Title</label>
+                            <input type="text" class="form-control" id="board_title" placeholder="Title">
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="board_private">
+                            <label for="private"> Is private?</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="createBoardBtn">Create</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</template>
+<!-- Modal window for editing new board -->
+<template id="editBoard">
+    <div class="modal fade" id="editBoardModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit board</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-board-form">
+                        <div class="form-group">
+                            <label for="board_title">Title</label>
+                            <input type="text" class="form-control" id="boardTitle" placeholder="Title">
+                        </div>
+                        <div class="form-check">
+                            <input type="hidden" id="boardId" name="boardId" value="">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="editBoardBtn">Edit</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</template>
+<template id="tableBoards">
+    <h1>BOARDS</h1>
+    <table id="boards">
+    </table>
+</template>
+<template id="tableBoardsRow">
+    <tr>
+        <td><button type="button" class="btn btn-primary btn-lg btn-block" name="title" id="title"/></td>
+        <td><i class="privatePublic" name="private" id="private"></i></td>
+        <td><button class="fa fa-pencil-square-o btn btn-secondary btn-lg btn-block" name="edit" id="edit">edit</button></td>
+        <td><button class="fa fa-times btn btn-secondary btn-lg btn-block"  name="delete" id="delete">delete</button></td>
+    </tr>
+</template>

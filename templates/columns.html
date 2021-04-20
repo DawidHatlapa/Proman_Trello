@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Next Trello</title>
+
+    <link rel="shortcut icon" href="./static/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./static/favicon/site.webmanifest">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- for login page -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="/static/css/login.css">
+
+    <style>
+      .col {
+          background-color: #b2fdff;
+          max-width: 250px;
+          min-width: 120px;
+          border: thin solid black;
+          margin: 10px;
+          padding: 10px;
+      }
+      .list-group-item{
+          margin-right: 10px;
+          margin-left: 10px;
+          border: thin solid black;
+      }
+
+      .columnContainer{
+          background-color: #dffffd;
+          border: thin solid black;
+          margin: 20px;
+      }
+
+      .columnTitle{
+      }
+    </style>
+
+</head>
+<body>
+<!-- header -->
+
+    <div class="text-center">
+        <a href="/"><img class="logotypHeaderImg" class="" src="../static/logo/next_trello_logotyp.png"\></a>
+    </div>
+    <div id="columnContainer" class="columnContainer row">
+        <div id="column" class="list-group col ">
+                <label id="columnTitle" class="columnTitle">To do</label>
+				<div class="list-group-item">Item 1</div>
+				<div class="list-group-item">Item 2</div>
+				<div class="list-group-item">Item 3</div>
+				<div class="list-group-item">Item 4</div>
+				<div class="list-group-item">Item 5</div>
+				<div class="list-group-item">Item 6</div>
+			</div>
+         <div id="column2" class="list-group col">
+                <label id="columnTitle" >Doing</label>
+				<div class="list-group-item">Item 1</div>
+				<div class="list-group-item">Item 2</div>
+				<div class="list-group-item">Item 3</div>
+				<div class="list-group-item">Item 4</div>
+				<div class="list-group-item">Item 5</div>
+				<div class="list-group-item">Item 6</div>
+			</div>
+    </div>
+
+    <script>
+        let column = document.getElementById('column')
+        new Sortable(column, {
+            swapThreshold: 1,
+                filter: '#columnTitle', // 'filtered' class is not draggable
+                group: 'shared', // set both lists to same group
+            animation: 150,
+            ignore: 'label',
+            // Element dragging ended
+            onEnd: function (/**Event*/evt) {
+                var itemEl = evt.item;  // dragged HTMLElement
+                evt.to;    // target list
+                evt.from;  // previous list
+                evt.oldIndex;  // element's old index within old parent
+                evt.newIndex;  // element's new index within new parent
+                evt.oldDraggableIndex; // element's old index within old parent, only counting draggable elements
+                evt.newDraggableIndex; // element's new index within new parent, only counting draggable elements
+                evt.clone // the clone element
+                evt.pullMode;  // when item is in another sortable: `"clone"` if cloning, `true` if moving
+            },
+            // Called by any change to the list (add / update / remove)
+            onSort: function (/**Event*/evt) {
+                // same properties as onEnd
+            },
+        });
+
+        let column2 = document.getElementById('column2')
+        new Sortable(column2, {
+            swapThreshold: 1,
+            filter: '#columnTitle', // 'filtered' class is not draggable
+            group: 'shared',
+            animation: 150
+        });
+
+        let columns = document.getElementById("columnContainer")
+        new Sortable(columns, {
+            swapThreshold: 1,
+            animation: 150
+        })
+    </script>
+
+<!-- footer -->
+<footer class="bg-light text-center text-lg-start">
+  <div class="text-center p-3 textFooter">
+    © 2021 Copyright: Next Trello Team<br>Izabela Żmuda & Roman Pindela
+  </div>
+</footer>
+
+
+</body>
+</html>

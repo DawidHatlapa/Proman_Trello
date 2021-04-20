@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <script type="module" src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+<div class="background">
+    <div id="boards">
+    </div>
+    <div id="display-board">
+    </div>
+    </div>
+<div id="templates"></div>
+{% endblock %}
